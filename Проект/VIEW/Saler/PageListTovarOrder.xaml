@@ -1,0 +1,39 @@
+﻿<Page x:Class="Проект.VIEW.Saler.PageListTovarOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Проект.VIEW.Saler"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageListTovarOrder" Style="{StaticResource StylePageClient}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="listtovarView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя товара" DisplayMemberBinding="{Binding Tovar.NameTovar}"/>
+                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Tovar.CostTovar}"/>
+                    <GridViewColumn Header="Количество товаров" DisplayMemberBinding="{Binding CountTovar }"/>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Button x:Name="BtnPlus" Content="+" Click="Clikcbtnplus"/>
+                                    <Button x:Name="BtnMinus" Content="-" Click="ClikcbtnMinus"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <Button x:Name="SnakeBar" Content="Оформить заказ" Margin="10" Click="btnCompliteOrder"/>
+        </StackPanel>
+    </Grid>
+</Page>

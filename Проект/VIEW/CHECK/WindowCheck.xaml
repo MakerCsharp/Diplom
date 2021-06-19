@@ -1,0 +1,69 @@
+﻿<Window x:Class="Проект.VIEW.CHECK.WindowCheck"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Проект.VIEW.CHECK"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         Height="547" WindowStyle="ToolWindow" Width="959" Icon="/Проект;component/IMAGE/shop-icon_34368.png" >
+    <Grid x:Name="WindowsViewPrint" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="63"/>
+            <RowDefinition Height="71"/>
+            <RowDefinition Height="175"/>
+            <RowDefinition Height="29"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="116"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="listviewtovarUserBasket"  Grid.Row="3"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Наименование товара " Width="300" DisplayMemberBinding="{Binding NameTovar}"/>
+                    <GridViewColumn Header="Количество " Width="200" DisplayMemberBinding="{Binding CountTovar}"/>
+                    <GridViewColumn Header="Стоимость за шт " Width="200" DisplayMemberBinding="{Binding CostTovar}"/>
+                    <GridViewColumn Header="Cумма" Width="200" DisplayMemberBinding="{Binding Sum}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Grid.Row="1" FontFamily="Trebuchet MS" FontSize="36"  Text="СЧЕТ" />
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal" >
+            <TextBlock Grid.Row="1" FontFamily="Trebuchet MS" FontSize="17"  Text="Номер счета :" />
+            <TextBlock x:Name="numberinvoce" Text="Счет" FontFamily="Trebuchet MS" FontSize="17"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" >
+            <TextBlock Text="Итог к оплате :"/>
+            <TextBlock x:Name="txbCost" Text=" 123 "/>
+            <TextBlock Text=" .руб "/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" >
+            <TextBlock Text="Итог к оплате c учетом ндс :"/>
+            <TextBlock x:Name="txbCostTax" Text=" 123 "/>
+            <TextBlock Text=" .руб "/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" >
+            <TextBlock Text="Подпись покупателя" FontFamily="Trebuchet MS" FontSize="17" />
+            <TextBlock Text=" __________________________________" Margin="5,5,5,4.8" Width="200"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" >
+            <TextBlock Text="Подпись продовца" FontFamily="Trebuchet MS" FontSize="17" />
+            <TextBlock Text=" __________________________________" Margin="5,5,5,4.8" Width="200"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Orientation="Horizontal" >
+            <TextBlock Text="Дата:" FontFamily="Trebuchet MS" FontSize="17" />
+            <TextBlock x:Name="dateComplite" Text="" FontFamily="Trebuchet MS" FontSize="17"/>
+        </StackPanel>
+        <Button x:Name="PrintButton" Margin="805,0,0,41" Click="btnPrintInvoce" Grid.RowSpan="2" Height="Auto">
+            <materialDesign:PackIcon Kind="Printer" ></materialDesign:PackIcon>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,51 @@
+﻿<Page x:Class="Проект.VIEW.CLIENT.PageListTovar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Проект.VIEW.CLIENT"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+    
+      Title="PageListTovar" Style="{StaticResource StylePageClient}"  >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+
+            <TextBox x:Name="SerchTovar" Width="525" Margin="15"   materialDesign:HintAssist.Hint="Поиск" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="showTovar"/>
+
+
+        </StackPanel>
+        <!--Товары Покупателей -->
+        <ListView  x:Name="lvListTovars" 
+                 
+                  MouseDoubleClick="NameListTovarMouseDoubleClick" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Grid.Row="1" BorderBrush="#FF0BADEA" Grid.RowSpan="2"       >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel   >
+                        <Image x:Name="Imagetovar" Grid.Row="0" Source="{Binding Photo}"  Height="80"     />
+                        <TextBlock Text="{Binding NameTovar}"  Margin="10"/>
+                        <TextBlock Text="{Binding CostTovar}"  Margin="10"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Border Grid.Row="2">
+
+            <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"  x:Name="SnakBar"/>
+
+        </Border>
+    </Grid>
+</Page>

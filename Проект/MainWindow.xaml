@@ -1,0 +1,24 @@
+﻿<Window 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:Проект"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    x:Class="Проект.MainWindow"
+    mc:Ignorable="d" Height="482" Width="854" WindowStyle="None" ResizeMode="NoResize" Icon="IMAGE/shop-icon_34368.png"  >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border x:Name="Border" MouseLeftButtonDown="borMouseMove" Grid.Row="0" Background="#FF4A87DE">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Height="20" Width="20" Click="btnClickExit" />
+            </StackPanel>
+        </Border>
+        <Frame x:Name="frameWindow"  NavigationUIVisibility="Hidden" Grid.Row="1"   />
+    </Grid>
+</Window>

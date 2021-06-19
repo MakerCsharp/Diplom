@@ -1,0 +1,68 @@
+﻿<Page x:Class="Проект.VIEW.REGISTRATION.PageRegistrationClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Проект.VIEW.REGISTRATION"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Style="{StaticResource StylePage}"
+      Title="PageRegistrationClient">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="310*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+            <TextBlock Text="Регистрация" FontFamily="Trebuchet MS" FontSize="48"/>
+
+        </StackPanel>
+        <Grid  Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="215*"/>
+                <ColumnDefinition Width="212*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" >
+                <TextBox x:Name="NameClient" Text="{Binding NameUser }" Margin="40,10,170,10" 
+                         materialDesign:HintAssist.Hint="Имя клиента" TextChanged="showName" />
+                <TextBox x:Name="SecondNameClient" Text="{Binding SerNameUser}"  Margin="40,10,170,10"  
+                         materialDesign:HintAssist.Hint="Фамилия клиента" TextChanged="showSecondName"/>
+                <TextBox x:Name="LastNameClient" Text="{Binding PatronymUser }" Margin="40,10,170,10" 
+                         materialDesign:HintAssist.Hint="Отчество клиента" TextChanged="showPatronym"/>
+                <TextBox x:Name="PhoneNumber" Text="{Binding PhoneNumberUser }" Margin="40,10,170,10" 
+                         materialDesign:HintAssist.Hint="Телефоный номер клиента" TextChanged="ShowPhoneNumber"/>
+                <DatePicker x:Name="DateClient" SelectedDate="{x:Static sys:DateTime.Now}" Text="{Binding DataOfBirth }" Margin="40,10,170,10"   materialDesign:HintAssist.Hint="Дат рождения" SelectedDateChanged="showDate"  />
+                <TextBox x:Name="AdressClient" Text="{Binding Adress }" Margin="40,10,170,10" materialDesign:HintAssist.Hint="Адресс" TextChanged="showAdress"/>
+                <TextBox x:Name="EmailClient" Text="{Binding Email }" Margin="40,10,170,10"  materialDesign:HintAssist.Hint="Email" TextChanged="showEmail"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+                <ComboBox Name="combSex" SelectedItem="{Binding Sex1}" Margin="10,10,119,10" DisplayMemberPath="NameSex"  materialDesign:HintAssist.Hint="Пол" SelectionChanged="gendershow"  />
+                <TextBox x:Name="LoginUSer" Text="{Binding Login }" Margin="10,10,119,10" materialDesign:HintAssist.Hint="Логин" TextChanged="showLogin"/>
+                <TextBox x:Name="Password"  Margin="10,10,119,10" materialDesign:HintAssist.Hint="Пароль" TextChanged="showPassword"/>
+                <TextBox x:Name="RePassword" Text="{Binding Password }" Margin="10,10,119,10" materialDesign:HintAssist.Hint="Повторный пароль" TextChanged="showRepassword"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="314,0" Width="226"   >
+            <Button Content="Регистрация" Margin="10" HorizontalAlignment="Center" Click="btnSaveClient"/>
+            <Button Content="Назад" Margin="10" HorizontalAlignment="Center" Click="btnBackClick"/>
+        </StackPanel>
+        <Border Grid.Row="3">
+            <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"  x:Name="SnakBar"/>
+        </Border>
+    </Grid>
+    
+
+</Page>

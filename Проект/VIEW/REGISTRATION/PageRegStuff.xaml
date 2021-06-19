@@ -1,0 +1,57 @@
+﻿<Page x:Class="Проект.VIEW.REGISTRATION.PageRegStuff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Проект.VIEW.REGISTRATION"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
+      mc:Ignorable="d" 
+      xmlns:sy="clr-namespace:System;assembly=mscorlib"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageRegStuff" Style="{StaticResource StylePageManager}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="315*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="217,0" Width="360" >
+            <TextBlock Text="Регистрация" FontFamily="Trebuchet MS" FontSize="48" Width="360"/>
+        </StackPanel>
+        <Grid  Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="215*"/>
+                <ColumnDefinition Width="212*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" >
+                <TextBox x:Name="NameClient" Text="{Binding Name }" Margin="40,10,170,10"  materialDesign:HintAssist.Hint="Имя " TextChanged="showName"/>
+                <TextBox x:Name="SecondNameClient" Text="{Binding SerName}"  Margin="40,10,170,10"   materialDesign:HintAssist.Hint="Фамилия " TextChanged="showSername"/>
+                <TextBox x:Name="LastNameClient" Text="{Binding Patronym}" Margin="40,10,170,10"  materialDesign:HintAssist.Hint="Отчество " TextChanged="showLastname" />
+                <TextBox x:Name="PhoneNumber" Text="{Binding PhoneNumber }" Margin="40,10,170,10"  materialDesign:HintAssist.Hint="Телефоный номер " TextChanged="showPhone"/>
+                <DatePicker x:Name="DateClient"  Text="{Binding DateofBirthday }" Margin="40,10,170,10"   materialDesign:HintAssist.Hint="Дат рождения"  SelectedDateChanged="showDate"/>
+                <TextBox x:Name="AdressClient" Text="{Binding Adress }" Margin="40,10,170,10" materialDesign:HintAssist.Hint="Адресс"  TextChanged="showAdress"/>
+                <ComboBox Name="combSex" SelectedItem="{Binding Sex1}" Margin="40,10,170,10" DisplayMemberPath="NameSex"  materialDesign:HintAssist.Hint="Пол"  SelectionChanged="Showgender" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+                <ComboBox Name="combRole" SelectedItem="{Binding RoleUser}" Margin="10,10,119,10" DisplayMemberPath="NameRole"  materialDesign:HintAssist.Hint="Должность"  SelectionChanged="Showrole"/>
+                <TextBox x:Name="LoginUSer" Text="{Binding Login }" Margin="10,10,119,10" materialDesign:HintAssist.Hint="Логин" SelectionChanged="ShowLogin"/>
+                <TextBox x:Name="Password"  Text="{Binding Password }" Margin="10,10,119,10" materialDesign:HintAssist.Hint="Пароль" SelectionChanged="ShowPassword"/>
+                <TextBox x:Name="RePassword"  Margin="10,10,119,10" materialDesign:HintAssist.Hint="Повторный пароль" TextChanged="ShowrePassword"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="330,0" Width="134"  >
+            <Button Content="Регистрация" Margin="10" HorizontalAlignment="Center" Click="btnSaveClient"/>
+        </StackPanel>
+
+        <Border Grid.Row="3">
+            <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"  x:Name="SnakBar"/>
+        </Border>
+    </Grid>
+</Page>
